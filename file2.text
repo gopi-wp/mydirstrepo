@@ -1,0 +1,40 @@
+import math
+
+def is_prime(n):
+    """
+    Checks if a given number is a prime number.
+
+    Args:
+        n: An integer.
+
+    Returns:
+        True if n is a prime number, False otherwise.
+    """
+    if n <= 1:
+        return False  # Numbers less than or equal to 1 are not prime
+    if n <= 3:
+        return True   # 2 and 3 are prime numbers
+    if n % 2 == 0 or n % 3 == 0:
+        return False  # Numbers divisible by 2 or 3 are not prime (except 2 and 3 themselves)
+
+    # Check for prime numbers using a step of 6 (optimization)
+    # All prime numbers greater than 3 can be expressed in the form 6k ± 1
+    i = 5
+    while i * i <= n:
+        if n % i == 0 or n % (i + 2) == 0:
+            return False
+        i += 6
+    return True
+
+# Example usage:
+number_to_check = 29
+if is_prime(number_to_check):
+    print(f"{number_to_check} is a prime number.")
+else:
+    print(f"{number_to_check} is not a prime number.")
+
+number_to_check_2 = 10
+if is_prime(number_to_check_2):
+    print(f"{number_to_check_2} is a prime number.")
+else:
+    print(f"{number_to_check_2} is not a prime number.")
