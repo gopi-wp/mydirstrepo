@@ -1,0 +1,14 @@
+public class SumOfDigits {
+    public static void main(String[] args) {
+        int number = 12345; // The number to find the sum of its digits
+        int sum = 0;
+
+        // Loop until the number becomes 0
+        while (number != 0) {
+            int lastDigit = number % 10; // Get the last digit
+            sum += lastDigit; // Add the last digit to the sum
+            number /= 10; // Remove the last digit
+        }
+        System.out.println("The sum of digits of " + 12345 + " is: " + sum);
+    }
+}
